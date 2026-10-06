@@ -124,13 +124,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Project_20261006.cpp" />
+    <ClCompile Include="State_Endhing.cpp" />
+    <ClCompile Include="State_InGame.cpp" />
+    <ClCompile Include="State_Startup.cpp" />
+    <ClCompile Include="State_Title.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="State_Endhing.h" />
+    <ClInclude Include="State_InGame.h" />
+    <ClInclude Include="State_Startup.h" />
+    <ClInclude Include="State_Title.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
