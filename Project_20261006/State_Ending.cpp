@@ -1,29 +1,29 @@
 #include<conio.h>
-#include"State_Endhing.h"
+#include"State_Ending.h"
 #include"GameManager.h"
 #include"State_Title.h"
 
-void State_Endhing::OnEnter(GameManager* manager)
+void State_Ending::OnEnter(GameManager* manager)
 {
 	std::cout << "エンディング" << std::endl;
 }
 
-void State_Endhing::OnUpdate(GameManager* manager, float deltaTime)
+void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
 {
 	//	AnyKeyでタイトルに遷移
-	if(_kbhit)
+	if(_kbhit())
 	{
 		int ch = _getch();
 		manager->ChangeState(std::make_unique<State_Title>());
 	}
 }
 
-void State_Endhing::OnExit(GameManager* manager)
+void State_Ending::OnExit(GameManager* manager)
 {
 	std::cout << "エンディングの終了" << std::endl;
 }
 
-const std::string State_Endhing::GetName()const
+const std::string State_Ending::GetName()const
 {
-	return "Endhing";
+	return "Ending";
 }

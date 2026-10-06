@@ -4,7 +4,7 @@
 class GameManager;
 
 //	エンディング画面
-class State_Endhing:public GameState
+class State_Ending:public GameState
 {
 public:
 	void OnEnter(GameManager* manager);

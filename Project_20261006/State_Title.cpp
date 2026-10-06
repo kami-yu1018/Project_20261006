@@ -13,14 +13,14 @@ void State_Title::OnUpdate(GameManager* manager, float deltaTime)
 	//	AnyKeyでゲーム画面日遷移
 	if (_kbhit())
 	{
-		int ch = getch();
+		int ch = _getch();
 		manager->ChangeState(std::make_unique<State_InGame>());
 	}
 }
 
 void State_Title::OnExit(GameManager* manager)
 {
-	
+	std::cout << "タイトル画面の終了" << std::endl;
 }
 
 const std::string State_Title::GetName()const

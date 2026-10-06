@@ -18,7 +18,7 @@ struct EnemyData
 struct PlayerData
 {
 	int ID;
-	int Name[256];
+	const char Name[256];
 	int HP;
 	int ATK;
 	int DEF;
