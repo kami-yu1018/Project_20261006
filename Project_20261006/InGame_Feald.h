@@ -7,15 +7,20 @@ class Feald:public InGameState
 	int playerX = 1;
 	int playerY = 1;
 
-	//	マップの描画
-	void DrawMap();
+	//	敵とエンカウントしたかどうか
+	bool encounter = false;
 
 public:
 	Feald() {};
 	~Feald() {};
 	
-	void OnEnter();
-	void OnUpdate();
-	void OnExit();
+	void OnEnter()override;
+	void OnUpdate()override;
+	void OnExit()override;
 
+	//	マップの描画
+	void DrawMap()const;
+
+	//	敵にエンカウントしたかを取得
+	bool Encount()const;
 };

@@ -26,6 +26,7 @@ public:
 	void OnEnter();
 	void OnUpdate();
 	void OnExit();
+	int GameEnd();
 
 	void PlayerEnter();
 	void EnemyEnter();

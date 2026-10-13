@@ -21,6 +21,8 @@ namespace
 	};
 	constexpr int MAP_H = sizeof(MAP) / sizeof(MAP[0]);
 	constexpr int MAP_W = 12;
+
+	constexpr int ENCOUNT_RATE = 20;
 }
 
 void Feald::OnEnter()
@@ -28,6 +30,10 @@ void Feald::OnEnter()
 	//	プレイヤーの初期座標を設定
 	playerX = 1;
 	playerY = 1;
+
+	//	初期状態はエンカウントしていない状態
+	encounter = false;
+
 	DrawMap();
 }
 
@@ -86,6 +92,13 @@ void Feald::OnUpdate()
 	{
 		std::cout << "ゲームクリア！！！\n";
 	}
+
+	//	移動性向後におエンカウント判定
+	if (std::rand() % 100 < ENCOUNT_RATE && !reachedGoal)
+	{
+		encounter = true;
+		std::cout << "敵が現れた！";
+	}
 }
 
 void Feald::OnExit()
@@ -94,7 +107,7 @@ void Feald::OnExit()
 }
 
 //	マップの描画
-void Feald::DrawMap()
+void Feald::DrawMap()const
 {
 	for (int y = 0; y < MAP_H; ++y)
 	{
@@ -116,4 +129,9 @@ void Feald::DrawMap()
 
 	std::cout << "移動　Ｗ：上　Ａ：左　Ｓ：下　Ｄ：右\n";
 	std::cout << "G：ゴール\n";
+}
+
+bool Feald::Encount()const
+{
+	return encounter;
 }

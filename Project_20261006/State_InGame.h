@@ -8,14 +8,15 @@ class GameManager;
 //	ƒQ[ƒ€‰æ–Ê
 class State_InGame :public GameState
 {
-	int battlenum = 1;
-
 	Feald feald;
 	Battle battle;
 
+	//	ƒoƒgƒ‹ó‘Ô‚©‚Ç‚¤‚©
+	bool inBattle = false;
+
 public:
-	void OnEnter(GameManager* manager);
-	void OnUpdate(GameManager* manager, float deltaTime);
-	void OnExit(GameManager* manager);
-	const std::string GetName()const;
+	void OnEnter(GameManager* manager)override;
+	void OnUpdate(GameManager* manager, float deltaTime)override;
+	void OnExit(GameManager* manager)override;
+	const std::string GetName()const override;
 };

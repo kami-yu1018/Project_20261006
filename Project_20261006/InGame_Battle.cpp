@@ -33,6 +33,7 @@ void Battle::EnemyEnter()
 {
 	for (int i = 0; i < 3; ++i)
 	{
+		e_alive[i] = true;
 		enemy[i] = EnemyFactory::CreateEnemy(i + 1);
 		std::cout << enemy[i]->Data.Name << "が現れた！\n";
 	}
@@ -126,7 +127,25 @@ void Battle::OnUpdate()
 
 void Battle::OnExit()
 {
-	
+}
+
+int Battle::GameEnd()
+{
+	//	敵が全滅したら１を返す（勝利）
+	if (e_alive[0] == 0 && e_alive[1] == 0 && e_alive[2] == 0)
+	{
+		return 1;
+	}
+	//	味方が全滅したら２を返す（ゲームオーバー）
+	else if (p_alive[0] == 0 && p_alive[1] == 0
+		&& p_alive[2] == 0 && p_alive[3] == 0)
+	{
+		return 2;
+	}
+	else
+	{
+		return 0;
+	}
 }
 
 //	通常攻撃
