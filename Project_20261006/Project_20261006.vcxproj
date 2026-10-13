@@ -126,6 +126,7 @@
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InGame_Battle.cpp" />
+    <ClCompile Include="InGame_Feald.cpp" />
     <ClCompile Include="Project_20261006.cpp" />
     <ClCompile Include="State_Ending.cpp" />
     <ClCompile Include="State_InGame.cpp" />
@@ -138,7 +139,9 @@
     <ClInclude Include="Factory.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="InGame_Bass.h" />
     <ClInclude Include="InGame_Batttle.h" />
+    <ClInclude Include="InGame_Feald.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="math.h" />
     <ClInclude Include="Player.h" />

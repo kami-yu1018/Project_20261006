@@ -8,7 +8,7 @@ Battle::Battle()
 }
 
 //	‰Šú‰»ˆ—
-void Battle::OnEnter(int battlenum)
+void Battle::OnEnter()
 {
 	EnemyEnter();
 	std::cout << std::endl;

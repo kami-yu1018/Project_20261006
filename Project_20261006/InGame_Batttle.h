@@ -2,12 +2,13 @@
 
 #include<iostream>
 #include<conio.h>
+#include"InGame_Bass.h"
 #include"Factory.h"
 #include"Player.h"
 #include"Enemy.h"
 #include"math.h"
 
-class Battle
+class Battle:public InGameState
 {
 	Enemy* enemy[3] = {};
 	bool e_alive[3] = { 1,1,1 };
@@ -22,7 +23,7 @@ public:
 	Battle();
 	~Battle() {};
 
-	void OnEnter(int battlenum);
+	void OnEnter();
 	void OnUpdate();
 	void OnExit();
 

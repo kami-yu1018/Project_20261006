@@ -6,7 +6,7 @@
 void State_InGame::OnEnter(GameManager* manager)
 {
 	//	‰Šú‰»ˆ—
-	battle.OnEnter(battlenum);
+	battle.OnEnter();
 }
 
 void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
