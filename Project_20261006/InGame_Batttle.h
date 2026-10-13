@@ -14,13 +14,17 @@ class Battle
 	Player* player[4] = {};
 	bool p_alive[4] = { 1,1,1,1 };
 
+	//	デフォルトステータスに戻す用の変数
+	int P_bassATK[4] = {};
+	int P_bassDEF[4] = {};
+
 public:
 	Battle();
-	~Battle();
+	~Battle() {};
 
 	void OnEnter(int battlenum);
 	void OnUpdate();
-	int OnExit();
+	void OnExit();
 
 	void PlayerEnter();
 	void EnemyEnter();
@@ -29,4 +33,6 @@ public:
 	void Attack(int i);
 	void Gard(int i);
 	void Skill(int i);
+
+	
 };
