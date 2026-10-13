@@ -145,14 +145,38 @@ void Battle::OnExit()
 
 int Battle::GameEnd()
 {
+	//	敵が全滅しているか確認
+	bool allEnemiesDead = true;
+
+	for (int i = 0; i < 3; ++i)
+	{
+		if (e_alive[i] && enemy[i]->Data.HP > 0)
+		{
+			allEnemiesDead = false;
+			break;
+		}
+	}
+
 	//	敵が全滅したら１を返す（勝利）
-	if (e_alive[0] == 0 && e_alive[1] == 0 && e_alive[2] == 0)
+	if (allEnemiesDead)
 	{
 		return 1;
 	}
+
+	//	味方が全滅しているか確認
+	bool allPlayersDead = true;
+
+	for (int i = 0; i < 4; ++i)
+	{
+		if (p_alive[i] && player[i]->Data.HP > 0)
+		{
+			allPlayersDead = false;
+			break;
+		}
+	}
+
 	//	味方が全滅したら２を返す（ゲームオーバー）
-	else if (p_alive[0] == 0 && p_alive[1] == 0
-		&& p_alive[2] == 0 && p_alive[3] == 0)
+	if (allPlayersDead)
 	{
 		return 2;
 	}

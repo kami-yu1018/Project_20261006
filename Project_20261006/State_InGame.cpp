@@ -22,6 +22,12 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 			inBattle = true;
 			battle.OnEnter();
 		}
+
+		if (feald.Goal)
+		{
+			std::cout << "ゲームクリア！\n";
+			manager->ChangeState(std::make_unique<State_Ending>());
+		}
 	}
 	else
 	{

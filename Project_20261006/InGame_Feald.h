@@ -10,7 +10,12 @@ class Feald:public InGameState
 	//	敵とエンカウントしたかどうか
 	bool encounter = false;
 
+	
+
 public:
+	//	ゴールしたかどうか
+	bool Goal = false;
+
 	Feald() {};
 	~Feald() {};
 	

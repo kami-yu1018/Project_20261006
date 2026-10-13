@@ -34,6 +34,8 @@ void Feald::OnEnter()
 	//	初期状態はエンカウントしていない状態
 	encounter = false;
 
+	Goal = false;
+
 	DrawMap();
 }
 
@@ -91,6 +93,7 @@ void Feald::OnUpdate()
 	if (reachedGoal)
 	{
 		std::cout << "ゲームクリア！！！\n";
+		Goal = true;
 	}
 
 	//	移動性向後におエンカウント判定
