@@ -1,5 +1,6 @@
 #pragma once
 #include"GameState.h"
+#include"InGame_Feald.h"
 #include"InGame_Batttle.h"
 
 class GameManager;
@@ -9,6 +10,7 @@ class State_InGame :public GameState
 {
 	int battlenum = 1;
 
+	Feald feald;
 	Battle battle;
 
 public:

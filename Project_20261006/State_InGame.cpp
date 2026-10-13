@@ -6,13 +6,15 @@
 void State_InGame::OnEnter(GameManager* manager)
 {
 	//	‰Šú‰»ˆ—
-	battle.OnEnter();
+	feald.OnEnter();
+//	battle.OnEnter();
 }
 
 void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 {
 	//	ƒQ[ƒ€XVˆ—
-	battle.OnUpdate();
+	feald.OnUpdate();
+//	battle.OnUpdate();
 }
 
 void State_InGame::OnExit(GameManager* manager)
