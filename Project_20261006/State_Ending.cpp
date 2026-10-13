@@ -10,6 +10,8 @@ void State_Ending::OnEnter(GameManager* manager)
 
 void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
 {
+
+	std::cout << "キーを押してタイトルへ戻る\n";
 	//	AnyKeyでタイトルに遷移
 	if(_kbhit())
 	{

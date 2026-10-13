@@ -27,8 +27,10 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 	{
 		battle.OnUpdate();
 
-		//	バトルが終了したかを確認
-		if (battle.GameEnd() == 1)
+		//	バトル終了判定
+		const int result = battle.GameEnd();
+		
+		if (battle.GameEnd() == 1)	//	勝利：フィールドへ戻る
 		{
 			battle.OnExit();
 			inBattle = false;
@@ -39,9 +41,10 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 
 			std::cout << "勝利！\n";
 		}
-		else if (battle.GameEnd() == 2)
+		else if (battle.GameEnd() == 2)	//	全滅：エンディング画面へ移行
 		{
-			return;
+			std::cout << "ゲームオーバー\n";
+			manager->ChangeState(std::make_unique<State_Ending>());
 		}
 	}
 

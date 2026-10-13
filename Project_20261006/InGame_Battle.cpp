@@ -93,14 +93,28 @@ void Battle::OnUpdate()
 	}
 
 	//	“G‚Ìs“®
+
+	
 	for (int i = 0; i < 3; ++i)
 	{
+		bool  partyAlive = false;
+		for (int i = 0; i < 4; ++i)
+		{
+			if (p_alive[i])
+			{
+				partyAlive = true;
+				break;
+			}
+		}
+
 		if (e_alive[i] == 1)
 		{
 			std::cout << enemy[i]->Data.Name << "‚ÌUŒ‚I\n";
 			int tag = rand() % 4;
 			while (p_alive[tag] == false)
 			{
+				if (!partyAlive) break;
+
 				tag = rand() % 4;
 			}
 
