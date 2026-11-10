@@ -23,10 +23,9 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 			battle.OnEnter();
 		}
 
-		if (feald.Goal)
+		if (feald.Goal)		//	エンディング画面へ移行（ゲームクリア）
 		{
-			std::cout << "ゲームクリア！\n";
-			manager->ChangeState(std::make_unique<State_Ending>());
+			manager->ChangeState(std::make_unique<State_Ending>(1));
 		}
 	}
 	else
@@ -48,10 +47,9 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 
 			std::cout << "勝利！\n";
 		}
-		else if (battle.GameEnd() == 2)	//	全滅：エンディング画面へ移行
+		else if (battle.GameEnd() == 2)	//	全滅：エンディング画面へ移行（ゲームオーバー）
 		{
-			std::cout << "ゲームオーバー\n";
-			manager->ChangeState(std::make_unique<State_Ending>());
+			manager->ChangeState(std::make_unique<State_Ending>(2));
 		}
 	}
 

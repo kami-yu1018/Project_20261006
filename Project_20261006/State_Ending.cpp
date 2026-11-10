@@ -3,6 +3,11 @@
 #include"GameManager.h"
 #include"State_Title.h"
 
+State_Ending::State_Ending(int result)
+{
+	endingResult = result;
+}
+
 void State_Ending::OnEnter(GameManager* manager)
 {
 	std::cout << "エンディング" << std::endl;
@@ -10,6 +15,14 @@ void State_Ending::OnEnter(GameManager* manager)
 
 void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
 {
+	if (endingResult == 1)
+	{
+		std::cout << "GameClear!!!\n";
+	}
+	else if (endingResult == 2)
+	{
+		std::cout << "GameOver...\n";
+	}
 
 	std::cout << "キーを押してタイトルへ戻る\n";
 	//	AnyKeyでタイトルに遷移
