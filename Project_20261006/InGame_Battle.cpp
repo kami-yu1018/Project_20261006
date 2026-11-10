@@ -11,6 +11,17 @@ Battle::Battle()
 void Battle::OnEnter()
 {
 	EnemyEnter();
+
+	//	戦闘開始時、前の戦闘で味方が死んでいたらHP１で復活させる
+	for (int i = 0; i < 4; ++i)
+	{
+		if (!p_alive[i])
+		{
+			player[i]->Data.HP = 1;
+			p_alive[i] = true;
+		}
+	}
+
 	std::cout << std::endl;
 }
 
@@ -45,6 +56,9 @@ void Battle::OnUpdate()
 	//	味方のコマンド
 	for (int i = 0; i < 4; ++i)
 	{
+		if (GameEnd()>0)
+			break;
+
 		//	最初にデフォルトステータスに戻す
 		player[i]->Data.ATK = P_bassATK[i];
 		player[i]->Data.DEF = P_bassDEF[i];
@@ -97,15 +111,7 @@ void Battle::OnUpdate()
 	
 	for (int i = 0; i < 3; ++i)
 	{
-		bool  partyAlive = false;
-		for (int i = 0; i < 4; ++i)
-		{
-			if (p_alive[i])
-			{
-				partyAlive = true;
-				break;
-			}
-		}
+		GameEnd();
 
 		if (e_alive[i] == 1)
 		{
@@ -113,8 +119,6 @@ void Battle::OnUpdate()
 			int tag = rand() % 4;
 			while (p_alive[tag] == false)
 			{
-				if (!partyAlive) break;
-
 				tag = rand() % 4;
 			}
 
@@ -125,12 +129,13 @@ void Battle::OnUpdate()
 
 			player[tag]->Data.HP -= result.damage;
 
-			std::cout << player[tag]->Data.Name << "に" << result.damage << "ダメージ！";
+			std::cout << player[tag]->Data.Name << "に" << result.damage << "ダメージ！\n";
 			if (player[tag]->Data.HP <= 0)
 			{
 				p_alive[tag] = false;
-				std::cout << player[tag]->Data.Name << "は倒れた！";
+				std::cout << player[tag]->Data.Name << "は倒れた！\n";
 			}
+			std::cout << "\n";
 		}
 		else
 		{
@@ -203,24 +208,13 @@ void Battle::Attack(int i)
 	//	ターゲット選択
 	int target = ReadValidKey("123");
 
-	while (!e_alive[target])
+	while (!e_alive[target-'1'])
 	{
 		target = ReadValidKey("123");
 	}
 
-	int tag;
-	if (target == '1')
-	{
-		tag = 0;
-	}
-	else if (target == '2')
-	{
-		tag = 1;
-	}
-	else if (target == '3')
-	{
-		tag = 2;
-	}
+	int tag = target - '1';
+	
 
 	//	ダメージ計算
 	DamageResult result = CalculateDamage(
@@ -292,11 +286,9 @@ void Battle::Skill(int i)
 
 		target = ReadValidKey("123");
 
-		while(!p_alive[target]) target = ReadValidKey("123");
+		while(!e_alive[target - '1']) target = ReadValidKey("123");
 
-		if (target == '1')	tag = 0;
-		else if (target == '2')	tag = 1;
-		else if (target == '3')	tag = 2;
+		tag = target - '1';
 
 		player[i]->Data.ATK *= 1.5f;
 
@@ -327,28 +319,12 @@ void Battle::Skill(int i)
 		
 		target = ReadValidKey("1234");
 
-		while (!p_alive[target])
+		while (!p_alive[target - '1'])
 		{
 			target = ReadValidKey("1234");
 		}
 
-		int tag;
-		if (target == '1')
-		{
-			tag = 0;
-		}
-		else if (target == '2')
-		{
-			tag = 1;
-		}
-		else if (target == '3')
-		{
-			tag = 2;
-		}
-		else if (target == '4')
-		{
-			tag = 3;
-		}
+		tag = target - '1';
 
 		player[tag]->Data.HP += player[i]->Data.DEF * 2;
 		std::cout << player[i]->Data.Name << "のヒール！\n";

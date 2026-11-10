@@ -7,12 +7,10 @@ class Feald:public InGameState
 	int playerX = 1;
 	int playerY = 1;
 
+public:
 	//	敵とエンカウントしたかどうか
 	bool encounter = false;
 
-	
-
-public:
 	//	ゴールしたかどうか
 	bool Goal = false;
 

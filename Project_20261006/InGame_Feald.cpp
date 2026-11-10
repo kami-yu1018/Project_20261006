@@ -47,19 +47,25 @@ void Feald::OnUpdate()
 	
 	int nextX = playerX;
 	int nextY = playerY;
+
+	bool moved = false;
 	switch (key)
 	{
 	case'w':
 		nextY--;
+		moved = true;
 		break;
 	case'a':
 		nextX--;
+		moved = true;
 		break;
 	case's':
 		nextY++;
+		moved = true;
 		break;
 	case'd':
 		nextX++;
+		moved = true;
 		break;
 
 	default:
@@ -97,7 +103,7 @@ void Feald::OnUpdate()
 	}
 
 	//	移動性向後におエンカウント判定
-	if (std::rand() % 100 < ENCOUNT_RATE && !reachedGoal)
+	if (std::rand() % 100 < ENCOUNT_RATE && !reachedGoal && moved)
 	{
 		encounter = true;
 		std::cout << "敵が現れた！";

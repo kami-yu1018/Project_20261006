@@ -40,6 +40,7 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 		{
 			battle.OnExit();
 			inBattle = false;
+			feald.encounter = false;
 
 			//	マップの再表示
 			std::system("cls");
