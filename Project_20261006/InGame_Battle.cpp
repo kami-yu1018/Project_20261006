@@ -190,12 +190,24 @@ int Battle::GameEnd()
 void Battle::Attack(int i)
 {
 	std::cout << "ターゲットを選択してください" << std::endl;
-	std::cout << "１：" << enemy[0]->Data.Name <<
-		"２：" << enemy[1]->Data.Name <<
-		"３：" << enemy[2]->Data.Name << std::endl;
+	for (int i = 0; i < 3; ++i)
+	{
+		if (e_alive[i])
+		{
+			std::cout << i+1 <<"：" << enemy[i]->Data.Name;
+		}
+	}
+	
+	std::cout << std::endl;
 
 	//	ターゲット選択
-	const int target = ReadValidKey("123");
+	int target = ReadValidKey("123");
+
+	while (!e_alive[target])
+	{
+		target = ReadValidKey("123");
+	}
+
 	int tag;
 	if (target == '1')
 	{
@@ -226,6 +238,7 @@ void Battle::Attack(int i)
 	}
 	std::cout << enemy[tag]->Data.Name << "に" << result.damage << "ダメージ！\n";
 }
+
 //	ガード
 void Battle::Gard(int i)
 {
@@ -239,7 +252,7 @@ void Battle::Gard(int i)
 //	スキル
 void Battle::Skill(int i)
 {
-	int target_2;
+	int target;
 	int tag;
 	switch (i)
 	{
@@ -247,30 +260,44 @@ void Battle::Skill(int i)
 		std::cout << player[i]->Data.Name << "の必殺斬！\n";
 		for (int ene = 0; ene < 3; ++ene)
 		{
-			DamageResult result = CalculateDamage(
-				player[i]->Data.ATK,
-				player[i]->Data.CriticalRate,
-				enemy[ene]->Data.DEF);
-
-			enemy[ene]->Data.HP -= result.damage;
-			if (result.isCritical)
+			if(e_alive[i])
 			{
-				std::cout << "クリティカルヒット！\n";
+				DamageResult result = CalculateDamage(
+					player[i]->Data.ATK,
+					player[i]->Data.CriticalRate,
+					enemy[ene]->Data.DEF);
+
+				enemy[ene]->Data.HP -= result.damage;
+
+				if (result.isCritical)
+				{
+					std::cout << "クリティカルヒット！\n";
+				}
+
+				std::cout << enemy[ene]->Data.Name << "に" << result.damage << "ダメージ！\n";
 			}
-			std::cout << enemy[ene]->Data.Name << "に" << result.damage << "ダメージ！\n";
 		}
 		break;
-	case 1:
-		std::cout << "ターゲットを選択してください" << std::endl;
-		std::cout << "１：" << enemy[0]->Data.Name
-			<< "２：" << enemy[1]->Data.Name
-			<< "３：" << enemy[2]->Data.Name << std::endl;
 
-		target_2 = ReadValidKey("123");
-		if (target_2 == '1')	tag = 0;
-		else if (target_2 == '2')	tag = 1;
-		else if (target_2 == '3')	tag = 2;
-		std::cout << player[i]->Data.Name << "のファイアボール！\n";
+	case 1:		//	魔法使い
+		std::cout << "ターゲットを選択してください" << std::endl;
+		for (int i = 0; i < 3; ++i)
+		{
+			if (e_alive[i])
+			{
+				std::cout << i+1 << "：" << enemy[i]->Data.Name;
+			}
+		}
+		std::cout << "\n";
+
+		target = ReadValidKey("123");
+
+		while(!p_alive[target]) target = ReadValidKey("123");
+
+		if (target == '1')	tag = 0;
+		else if (target == '2')	tag = 1;
+		else if (target == '3')	tag = 2;
+
 		player[i]->Data.ATK *= 1.5f;
 
 		DamageResult result = CalculateDamage
@@ -281,31 +308,44 @@ void Battle::Skill(int i)
 		);
 		enemy[tag]->Data.HP -= result.damage;
 
+		std::cout << player[i]->Data.Name << "のファイアボール！\n";
 		std::cout << enemy[tag]->Data.Name << "に" << result.damage << "ダメージ！\n";
 		break;
-	case 2:
+
+	case 2:		//	賢者
 		//	選択した味方の体力を回復
 
 		std::cout << "ターゲットを選択してください" << std::endl;
-		std::cout << "１：" << player[0]->Data.Name<<
-			"　２：" << player[1]->Data.Name <<
-			"　３：" << player[2]->Data.Name <<
-			"　４：" << player[3]->Data.Name << std::endl;
-		target_2 = ReadValidKey("1234");
+		for (int i = 0; i < 4; ++i)
+		{
+			if (p_alive[i])
+			{
+				std::cout << i+1 << "：" << player[i]->Data.Name;
+			}
+		}
+		std::cout << "\n";
+		
+		target = ReadValidKey("1234");
+
+		while (!p_alive[target])
+		{
+			target = ReadValidKey("1234");
+		}
+
 		int tag;
-		if (target_2 == '1')
+		if (target == '1')
 		{
 			tag = 0;
 		}
-		else if (target_2 == '2')
+		else if (target == '2')
 		{
 			tag = 1;
 		}
-		else if (target_2 == '3')
+		else if (target == '3')
 		{
 			tag = 2;
 		}
-		else if (target_2 == '4')
+		else if (target == '4')
 		{
 			tag = 3;
 		}
@@ -314,13 +354,20 @@ void Battle::Skill(int i)
 		std::cout << player[i]->Data.Name << "のヒール！\n";
 		std::cout << player[tag]->Data.Name << "のＨＰが" << player[i]->Data.DEF * 2 << "回復！\n";
 		break;
+
 	case 3:
 		std::cout << player[i]->Data.Name << "のかまいたち！\n";
 
 		//	ランダムに4回攻撃
 		for (int atk = 0; atk < 4; ++atk)
 		{
-			const int tag = rand() % 3;
+			int tag = rand() % 3;
+
+			while (!e_alive[tag])
+			{
+				tag = rand() % 3;
+			}
+
 			DamageResult result = CalculateDamage(
 				player[i]->Data.ATK,
 				player[i]->Data.CriticalRate,
