@@ -5,6 +5,7 @@
 void State_Startup::OnEnter(GameManager* manager)
 {
 	std::cout << "スタートアップ処理" << std::endl;
+	std::system("cls");
 }
 
 void State_Startup::OnUpdate(GameManager* manager, float deltaTime)

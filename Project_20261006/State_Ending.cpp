@@ -11,10 +11,6 @@ State_Ending::State_Ending(int result)
 void State_Ending::OnEnter(GameManager* manager)
 {
 	std::cout << "エンディング" << std::endl;
-}
-
-void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
-{
 	if (endingResult == 1)
 	{
 		std::cout << "GameClear!!!\n";
@@ -23,8 +19,11 @@ void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
 	{
 		std::cout << "GameOver...\n";
 	}
-
 	std::cout << "キーを押してタイトルへ戻る\n";
+}
+
+void State_Ending::OnUpdate(GameManager* manager, float deltaTime)
+{
 	//	AnyKeyでタイトルに遷移
 	if(_kbhit())
 	{
