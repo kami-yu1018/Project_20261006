@@ -7,7 +7,7 @@ void State_InGame::OnEnter(GameManager* manager)
 {
 	//	初期化処理
 	inBattle = false;
-	feald.OnEnter();
+	feald.Init();
 }
 
 void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
@@ -15,9 +15,9 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 	if (!inBattle)
 	{
 		//	フィールド移動
-		feald.OnUpdate();
+		feald.Update();
 		//	敵に遭遇したらバトル開始
-		if (feald.Encount())
+		if (feald.moveBattle)
 		{
 			inBattle = true;
 			battle.OnEnter();
@@ -39,11 +39,11 @@ void State_InGame::OnUpdate(GameManager* manager, float deltaTime)
 		{
 			battle.OnExit();
 			inBattle = false;
-			feald.encounter = false;
+			feald.moveBattle = false;
 
 			//	マップの再表示
 			std::system("cls");
-			feald.DrawMap();
+			feald.Update();
 
 			std::cout << "勝利！\n";
 		}

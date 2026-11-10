@@ -124,6 +124,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Factory.cpp" />
+    <ClCompile Include="Feald_Controll.cpp" />
+    <ClCompile Include="Feald_Modle.cpp" />
+    <ClCompile Include="Feald_View.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InGame_Battle.cpp" />
     <ClCompile Include="InGame_Feald.cpp" />
@@ -137,6 +140,9 @@
     <ClInclude Include="Data.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Factory.h" />
+    <ClInclude Include="Feald_Controll.h" />
+    <ClInclude Include="Feald_Model.h" />
+    <ClInclude Include="Feald_View.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="InGame_Bass.h" />

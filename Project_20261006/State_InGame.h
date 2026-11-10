@@ -1,6 +1,7 @@
 #pragma once
 #include"GameState.h"
 #include"InGame_Feald.h"
+#include"Feald_Controll.h"
 #include"InGame_Batttle.h"
 
 class GameManager;
@@ -8,7 +9,7 @@ class GameManager;
 //	ƒQ[ƒ€‰æ–Ê
 class State_InGame :public GameState
 {
-	Feald feald;
+	FealdControll feald;
 	Battle battle;
 
 	//	ƒoƒgƒ‹ó‘Ô‚©‚Ç‚¤‚©

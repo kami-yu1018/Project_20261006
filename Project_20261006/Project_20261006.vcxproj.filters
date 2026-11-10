@@ -13,41 +13,74 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\setting">
+      <UniqueIdentifier>{03435128-f8f8-4743-9847-cd8e90af8862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state">
+      <UniqueIdentifier>{966cb64e-ed2a-470c-85c8-157e8147d18c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state\Ingame">
+      <UniqueIdentifier>{f2bc85e3-70f4-4d85-80af-58ef33b0f655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state\Ingame\Feald">
+      <UniqueIdentifier>{9f515f35-33f1-489d-bc36-dfece31acf74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state\Ending">
+      <UniqueIdentifier>{eeb54e4e-dc9b-46b7-b917-c84ce921726b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state\Title">
+      <UniqueIdentifier>{aa906ea6-552a-4697-9e9d-51e96dd0b37f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\state\Startup">
+      <UniqueIdentifier>{451db6a9-609a-4213-af2d-1799664fbad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\setting\Factory">
+      <UniqueIdentifier>{98f1cf93-56b3-4ef6-afd6-e62503566b1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\setting\GameManger">
+      <UniqueIdentifier>{a00f124b-6b5d-4be0-a222-5ee3ec880d00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project_20261006.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Factory.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="State_Title.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="State_InGame.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="State_Startup.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="State_Ending.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="InGame_Battle.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\state\Ingame</Filter>
     </ClCompile>
     <ClCompile Include="InGame_Feald.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\state\Ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Ending.cpp">
+      <Filter>ソース ファイル\state\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="State_InGame.cpp">
+      <Filter>ソース ファイル\state\Ingame</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Title.cpp">
+      <Filter>ソース ファイル\state\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="State_Startup.cpp">
+      <Filter>ソース ファイル\state\Startup</Filter>
+    </ClCompile>
+    <ClCompile Include="Factory.cpp">
+      <Filter>ソース ファイル\setting\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>ソース ファイル\setting\GameManger</Filter>
+    </ClCompile>
+    <ClCompile Include="Feald_Controll.cpp">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClCompile>
+    <ClCompile Include="Feald_Modle.cpp">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClCompile>
+    <ClCompile Include="Feald_View.cpp">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Factory.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
@@ -56,25 +89,7 @@
     <ClInclude Include="Player.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="State_InGame.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="State_Title.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="State_Startup.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="State_Ending.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="InGame_Batttle.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Key.h">
@@ -83,11 +98,41 @@
     <ClInclude Include="math.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Feald_Model.h">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Ending.h">
+      <Filter>ソース ファイル\state\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Title.h">
+      <Filter>ソース ファイル\state\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="State_Startup.h">
+      <Filter>ソース ファイル\state\Startup</Filter>
+    </ClInclude>
+    <ClInclude Include="State_InGame.h">
+      <Filter>ソース ファイル\state\Ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="InGame_Batttle.h">
+      <Filter>ソース ファイル\state\Ingame</Filter>
+    </ClInclude>
     <ClInclude Include="InGame_Feald.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\state\Ingame</Filter>
     </ClInclude>
     <ClInclude Include="InGame_Bass.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\state\Ingame</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>ソース ファイル\setting\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>ソース ファイル\setting\GameManger</Filter>
+    </ClInclude>
+    <ClInclude Include="Feald_Controll.h">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClInclude>
+    <ClInclude Include="Feald_View.h">
+      <Filter>ソース ファイル\state\Ingame\Feald</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
