@@ -48,9 +48,6 @@
     <ClCompile Include="InGame_Battle.cpp">
       <Filter>ソース ファイル\state\Ingame</Filter>
     </ClCompile>
-    <ClCompile Include="InGame_Feald.cpp">
-      <Filter>ソース ファイル\state\Ingame</Filter>
-    </ClCompile>
     <ClCompile Include="State_Ending.cpp">
       <Filter>ソース ファイル\state\Ending</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
       <Filter>ソース ファイル\state\Ingame</Filter>
     </ClInclude>
     <ClInclude Include="InGame_Batttle.h">
-      <Filter>ソース ファイル\state\Ingame</Filter>
-    </ClInclude>
-    <ClInclude Include="InGame_Feald.h">
       <Filter>ソース ファイル\state\Ingame</Filter>
     </ClInclude>
     <ClInclude Include="InGame_Bass.h">
