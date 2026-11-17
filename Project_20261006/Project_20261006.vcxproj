@@ -123,6 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battle_Controll.cpp" />
+    <ClCompile Include="Battle_Model.cpp" />
+    <ClCompile Include="Battle_View.cpp" />
     <ClCompile Include="Factory.cpp" />
     <ClCompile Include="Feald_Controll.cpp" />
     <ClCompile Include="Feald_Modle.cpp" />
@@ -136,6 +139,9 @@
     <ClCompile Include="State_Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battle_Controll.h" />
+    <ClInclude Include="Battle_Model.h" />
+    <ClInclude Include="Battle_View.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Factory.h" />

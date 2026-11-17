@@ -36,5 +36,4 @@ public:
 	void Gard(int i);
 	void Skill(int i);
 
-	
 };

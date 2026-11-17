@@ -8,6 +8,5 @@ public:
 	Player(const PlayerData& data)
 		:Data(data)
 	{
-
 	}
 };

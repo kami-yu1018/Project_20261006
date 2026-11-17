@@ -40,6 +40,9 @@
     <Filter Include="ソース ファイル\setting\GameManger">
       <UniqueIdentifier>{a00f124b-6b5d-4be0-a222-5ee3ec880d00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\state\Ingame\Battle">
+      <UniqueIdentifier>{5b95645f-e849-4412-a712-31f10325d625}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Project_20261006.cpp">
@@ -74,6 +77,15 @@
     </ClCompile>
     <ClCompile Include="Feald_View.cpp">
       <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle_Controll.cpp">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle_View.cpp">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
+    </ClCompile>
+    <ClCompile Include="Battle_Model.cpp">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +139,15 @@
     </ClInclude>
     <ClInclude Include="Feald_View.h">
       <Filter>ソース ファイル\state\Ingame\Feald</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle_Controll.h">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle_View.h">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle_Model.h">
+      <Filter>ソース ファイル\state\Ingame\Battle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
