@@ -1,6 +1,7 @@
 #pragma once
 #include"Data.h"
 
+
 class Player
 {
 public:
